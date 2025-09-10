@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minesweeper</title>
+    <style>
+        td {
+            border:1px solid black;
+            width: 30px;
+            height: 30px;
+        }
+        td.green {
+            background-color: #4ea84e;
+        }
+    </style>
+    <script>
+        function iAmClicked(tag){
+            if (tag.classList.contains("green"))
+                tag.classList.remove("green")
+            else
+                tag.classList.add('green');
+            console.log("I am in function iAmClicked")
+        }
+    </script>
+</head>
+<body>
+    <h1>Hello, world!</h1>
+    <p style="color:#c07d7d">It's my first paragraph.</p>
+    <table>
+        <tbody>
+            <tr>
+                <td onclick="iAmClicked(this)"></td>
+                <td onclick="iAmClicked(this)"></td>
+                <td onclick="iAmClicked(this)"></td>
+            </tr>
+            <tr>
+                <td onclick="iAmClicked(this)"></td>
+                <td onclick="iAmClicked(this)"></td>
+                <td onclick="iAmClicked(this)"></td>
+            </tr>
+            <tr>
+                <td onclick="iAmClicked(this)"></td>
+                <td onclick="iAmClicked(this)"></td>
+                <td onclick="iAmClicked(this)"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
