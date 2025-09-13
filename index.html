@@ -7,8 +7,8 @@
     <style>
         td {
             border:1px solid black;
-            width: 30px;
-            height: 30px;
+            width: 35px;
+            height: 35px;
         }
         td.green {
             background-color: #4ea84e;
@@ -37,29 +37,50 @@
             
             console.log("I am in function iAmClicked")
         }
+        function init(){
+            /*let img = document.createElement("img");
+            img.src = "mine.png"
+            img.width = 30
+            img.height = 30
+            document.getElementById("td_0_0").appendChild(img);
+            console.log("button_click")*/
+
+            table = document.createElement("table")
+            tbody = document.createElement("tbody")
+            table.appendChild(tbody)
+            for (let i = 0; i < 10; i++){
+                row = document.createElement("tr")
+                tbody.appendChild(row)
+                for (let j = 0; j < 10; j++){
+                    let cell = document.createElement("td")
+                    let id = "newtd_" + i + "_" + j;
+                    cell.id = id;
+                    cell.addEventListener("click", function(){iAmClicked(document.getElementById(id))})
+                    row.appendChild(cell)
+                }
+            }
+            document.getElementById("parent").appendChild(table)
+        }
+        function newGame(){
+            console.log("new game")
+            for (let i = 0; i < 10; i++){
+                for (let j = 0; j < 10; j++){
+                    let id = "newtd_" + i + "_" + j
+                    document.getElementById(id).classList.remove("red", "green", "black")
+                }
+            }
+        }
     </script>
 </head>
 <body>
     <h1>Hello, world!</h1>
     <p style="color:#c07d7d">It's my first paragraph.</p>
-    <table>
-        <tbody>
-            <tr>
-                <td onclick="iAmClicked(this)"></td>
-                <td onclick="iAmClicked(this)"></td>
-                <td onclick="iAmClicked(this)"></td>
-            </tr>
-            <tr>
-                <td onclick="iAmClicked(this)"></td>
-                <td onclick="iAmClicked(this)"></td>
-                <td onclick="iAmClicked(this)"></td>
-            </tr>
-            <tr>
-                <td onclick="iAmClicked(this)"></td>
-                <td onclick="iAmClicked(this)"></td>
-                <td onclick="iAmClicked(this)"></td>
-            </tr>
-        </tbody>
-    </table>
+    <div id="parent"></div>
+    <button onclick = "newGame()">
+        newGame
+    </button>
+    <script>
+        init()
+    </script>
 </body>
 </html>
